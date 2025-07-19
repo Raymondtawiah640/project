@@ -1,10 +1,20 @@
 <section class="min-h-screen bg-white text-gray-800 px-6 py-16">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
   <div class="max-w-5xl mx-auto text-center">
     <h2 class="text-4xl font-bold mb-6 text-indigo-600">About Us</h2>
+
     <p class="text-lg leading-relaxed text-gray-600 mb-8">
       We are a passionate team dedicated to building world-class ecommerce solutions that help businesses grow online. 
       From user-friendly online stores to advanced payment integrations and marketing tools, we craft experiences that convert visitors into loyal customers.
+      Here is a video you can watch 
+      <button type="button" onclick="scrollAndPlay()" class="text-blue-600 font-semibold underline">click here!</button>
     </p>
+
     <p class="text-md text-gray-500 mb-12">
       Our mission is to empower retailers, brands, and entrepreneurs by delivering scalable, secure, and beautifully designed digital platforms.
     </p>
@@ -38,13 +48,42 @@
       </ul>
     </div>
 
-    <!-- Team Snapshot -->
+    <!-- Team -->
     <div class="mt-16">
       <h3 class="text-2xl font-semibold text-indigo-500 mb-6">Our Team</h3>
       <p class="text-gray-600">
         Our team is a blend of seasoned developers, designers, strategists, and support professionals — all working together to help our clients succeed online.
       </p>
     </div>
+
+    <!-- Video Section -->
+    <div id="videos" class="mt-16">
+      <h3 class="text-2xl font-semibold text-indigo-500 mb-4">Watch Our Story</h3>
+      <div class="w-full h-[500px] rounded-xl overflow-hidden shadow-lg">
+        <video id="our-video" controls class="w-full h-full object-cover rounded-xl">
+          <source src="video/Ray.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- ✅ JavaScript moved OUTSIDE of the section -->
+<script>
+  function scrollAndPlay() {
+    const section = document.getElementById('videos');
+    const video = document.getElementById('our-video');
+
+    if (section && video) {
+      section.scrollIntoView({ behavior: 'smooth' });
+
+      // Ensure scroll completes before playing
+      setTimeout(() => {
+        video.play().catch(err => {
+          console.warn("Autoplay may be blocked:", err);
+        });
+      }, 500);
+    }
+  }
+</script>
