@@ -8,5 +8,5 @@ import { RouterModule} from '@angular/router';
   templateUrl: './home.html',
 })
 export class HomeComponent {
-
+  
 }
